@@ -1,0 +1,73 @@
+﻿
+    <!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="WindowsToolList.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsToolList"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid Margin="72,32,72,0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="设置" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    <!--114514-->
+                    <Expander HorizontalContentAlignment="Left" Margin="0,4,0,0" HorizontalAlignment="Stretch">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <FontIcon Glyph="&#xE943;" Margin="8,0,0,0"/>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                    <TextBlock Text="开发者工具" Margin="24,16,0,0"/>
+                                    <TextBlock Text="浏览此应用使用的技术和API。" Margin="24,4,0,16" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel Orientation="Vertical">
+                                <HyperlinkButton Margin="-4,0,0,0" Content="WinUI 3" NavigateUri="https://learn.microsoft.com/zh-cn/windows/apps/winui/winui3/" />
+                                <HyperlinkButton Margin="-4,0,0,0" Content="Settings Uri" NavigateUri="https://learn.microsoft.com/zh-cn/windows/uwp/launch-resume/launch-settings-app" />
+                                <Button Style="{ThemeResource AccentButtonStyle}" Content="点击这里，快来加入WinUI开发探讨群" Margin="0,8,0,0" Click="Button_Click"/>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <TextBlock Margin="0,16,0,0" Text="关于" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <!--114514-->
+                    <Expander IsExpanded="True" HorizontalContentAlignment="Left" Margin="0,16,0,0" HorizontalAlignment="Stretch">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Image Source="/Assets/Square44x44Logo.altform-lightunplated_targetsize-32.png" Margin="2,0,0,0"/>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                    <TextBlock Text="WindowsToolList" Margin="18,16,0,0"/>
+                                    <TextBlock Text="@2023 Microhard和七中Vincent。 保留所有权利。" Margin="18,4,0,16" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="七中Vincent和Microhard" Margin="8,0,0,0"/>
+                                <TextBlock Text="WindowsToolList 版本0.2.00" Margin="8,0,0,0"/>
+                                <TextBlock Text="任何KenYue，终将绳之以法！这个是UP制作WinUI3应用，与Microsoft无关！" Margin="8,0,0,0"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                    <HyperlinkButton Content="Microhard Demo" NavigateUri="https://microharddemo.github.io" Margin="-4,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                    <HyperlinkButton Content="Microhard的个人空间" NavigateUri="https://space.bilibili.com/1684665013" Margin="-4,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                    <HyperlinkButton Content="七中Vincent的个人空间" NavigateUri="https://space.bilibili.com/45521453" Margin="-4,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
