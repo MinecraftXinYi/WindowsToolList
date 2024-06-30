@@ -43,6 +43,8 @@ namespace WindowsToolList
         {
             m_window = new MainWindow();
             m_window.Activate();
+            Window testwindow = new TestWindow();
+            testwindow.Activate();
         }
 
         private Window m_window;
