@@ -12,5 +12,6 @@ namespace WindowsToolList.Models
         public string Path { get; set; }
         public int Type {  get; set; }
         public bool UseShellExecute { get; set; }
+        public string FontIcon { get; set; }
     }
 }

@@ -22,22 +22,22 @@
             <Grid.Resources>
                 <DataTemplate x:Key="XTemplate" x:DataType="localmodel:WindowsTool">
                     <ItemContainer>
-                        <Button HorizontalContentAlignment="Left" Height="72" HorizontalAlignment="Stretch">
+                        <StackPanel Height="72" HorizontalAlignment="Stretch">
                             <StackPanel Orientation="Horizontal">
-                                <FontIcon Glyph="&#xEEA3;" Margin="8,0,0,0"/>
+                                <FontIcon Glyph="{x:Bind FontIcon,Mode=OneWay}" Margin="8,0,0,0"/>
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <TextBlock Text="{x:Bind Name,Mode=OneWay}" Margin="24,0,0,0"/>
                                     <TextBlock Text="{x:Bind Path,Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" Margin="24,4,0,0"/>
                                 </StackPanel>
                             </StackPanel>
-                        </Button>
+                        </StackPanel>
                     </ItemContainer>
                 </DataTemplate>
             </Grid.Resources>
             <Grid x:Name="newTitleBar" Grid.Row="0" MinHeight="30" HorizontalAlignment="Stretch">
                 <TextBlock Text="Test Window" Margin="10,0,0,0"/>
             </Grid>
-            <ItemsView Grid.Row="1" Width="220" SelectionMode="None" Height="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            <ItemsView Grid.Row="1" Width="220" ItemInvoked="itemsviewer_ItemInvoked" IsItemInvokedEnabled="True" SelectionMode="None" Height="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        ItemTemplate="{StaticResource XTemplate}" x:Name="itemsviewer"/>
         </Grid>
     </Window.Content>
