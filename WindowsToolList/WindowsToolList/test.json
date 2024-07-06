@@ -1,0 +1,25 @@
+{
+  "WindowsTools": [
+    {
+      "Name": "HyperVFastCreate",
+      "Path": "C:\\Program Files\\Hyper-V\\VMCreate.exe",
+      "Type": 1,
+      "UseShellExecute": true,
+      "FontIcon": "&#xEEA3;"
+    },
+    {
+      "Name": "HyperVManager",
+      "Path": "C:\\Windows\\System32\\virtmgmt.msc",
+      "Type": 2,
+      "UseShellExecute": true,
+      "FontIcon": "&#xEEA3;"
+    },
+    {
+      "Name": "iSCSI",
+      "Path": "C:\\Windows\\system32\\iscsicpl.exe",
+      "Type": 1,
+      "UseShellExecute": true,
+      "FontIcon": "&#xE909;"
+    }
+  ]
+}

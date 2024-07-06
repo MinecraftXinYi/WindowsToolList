@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using WindowsToolList.Models;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -44,19 +45,24 @@ namespace WindowsToolList
             {
                 try
                 {
+                    JsonDocumentOptions jsonDocumentOptions = new JsonDocumentOptions()
+                    {
+                        AllowTrailingCommas = true,
+                        CommentHandling = JsonCommentHandling.Skip
+                    };
                     string json = File.ReadAllText("test.json");
-                    JsonArray data = (JsonArray)JsonArray.Parse(json);
-                    foreach (var item in data)
+                    JsonDocument jsonDocument = JsonDocument.Parse(json, jsonDocumentOptions);
+                    foreach (JsonElement item in jsonDocument.RootElement.GetProperty("WindowsTools").EnumerateArray())
                     {
                         try
                         {
                             toolList.Add(new WindowsTool()
                             {
-                                Name = item["Name"].ToString() ?? "Name",
-                                Path = item["Path"].ToString() ?? "C:\\Windows\\System32\\cmd.exe",
-                                Type = (int)item["Type"],
-                                UseShellExecute = (bool)item["UseShellExecute"],
-                                FontIcon = item["FontIcon"].ToString()
+                                Name = item.GetProperty("Name").GetString() ?? "Name",
+                                Path = item.GetProperty("Path").GetString() ?? "C:\\Windows\\System32\\cmd.exe",
+                                Type = item.GetProperty("Type").GetInt16(),
+                                UseShellExecute = item.GetProperty("UseShellExecute").GetBoolean(),
+                                FontIcon = item.GetProperty("FontIcon").GetString()
                             });
                         }
                         catch (Exception) { }
@@ -82,13 +88,18 @@ namespace WindowsToolList
                 WindowsTool tool = (WindowsTool)args.InvokedItem;
                 ProcessStartInfo processStartInfo = new ProcessStartInfo();
                 processStartInfo.UseShellExecute = tool.UseShellExecute;
-                if (tool.Type.Equals(1))
+                if (tool.Type.Equals(WindowsToolType.EXE))
                 {
                     processStartInfo.FileName = tool.Path;
                 }
-                else if (tool.Type.Equals(2))
+                else if (tool.Type.Equals(WindowsToolType.MSC))
                 {
                     processStartInfo.FileName = "C:\\Windows\\System32\\mmc.exe";
+                    processStartInfo.Arguments = tool.Path;
+                }
+                else if (tool.Type.Equals(WindowsToolType.CPL))
+                {
+                    processStartInfo.FileName = "C:\\Windows\\System32\\control.exe";
                     processStartInfo.Arguments = tool.Path;
                 }
                 Process.Start(processStartInfo);

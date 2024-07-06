@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WindowsToolList.Models
 {
-    public enum WindowsToolType : int
+    public static class WindowsToolType
     {
-        None = 0,
-        EXE = 1,
-        MSC = 2,
-        CPL = 3,
+        public static readonly short None = 0;
+        public static readonly short EXE = 1;
+        public static readonly short MSC = 2;
+        public static readonly short CPL = 3;
     }
 }
