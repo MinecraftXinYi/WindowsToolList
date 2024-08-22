@@ -77,6 +77,7 @@ namespace WindowsToolList
                     {
                         Text = ex.Message,
                     };
+                    dialog.XamlRoot = Content.XamlRoot;
                 }
             }
         }

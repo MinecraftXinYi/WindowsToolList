@@ -3,16 +3,17 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+	<AssemblyName>WindowsToolList</AssemblyName>
     <RootNamespace>WindowsToolList</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x86;x64;ARM64</Platforms>
     <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
+	<LangVersion>12.0</LangVersion>
 	<WindowsPackageType>None</WindowsPackageType>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="test.json" />
-    <None Remove="TestWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="test.json">
@@ -24,11 +25,5 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240607001" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.2428" />
     <Manifest Include="$(ApplicationManifest)" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="TestWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 </Project>
